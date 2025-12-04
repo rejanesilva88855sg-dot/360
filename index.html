@@ -8,12 +8,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
-    <style>  
+    <style>
         /* Variáveis de Cores */
         :root {
             --primary-color: #FF6600; /* Laranja Premium */
             --secondary-color: #2c3e50; /* Cinza Escuro/Azul Marinho */
             --accent-color: #27ae60; /* Verde para PIX/Sucesso */
+            --warning-color: #f39c12; /* Amarelo para Pendente */
             --background-color: #f8f9fa;
             --text-color: #333;
             --light-text: #fff;
@@ -141,10 +142,10 @@
             background-size: cover;
             background-position: center;
             color: var(--light-text);
-            text-align: center;
             padding: 150px 20px;
             position: relative;
             z-index: 1; 
+            text-align: center;
         }
 
         .hero-banner::before {
@@ -450,12 +451,13 @@
             margin-top: 10px;
         }
         
-        .success-message {
+        /* CORREÇÃO: Mensagem de Pagamento Pendente */
+        .pending-message {
             text-align: center;
             padding: 15px;
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
+            background-color: #fef7e0; /* Fundo Amarelo Suave */
+            color: #8a6d3b;
+            border: 1px solid #faebcc;
             border-radius: 5px;
             margin-bottom: 20px;
             font-weight: 600;
@@ -565,7 +567,7 @@
                 <h4>Fale Conosco</h4>
                 <p><i class="fas fa-phone-alt"></i> (95) 99999-9999</p>
                 <p><i class="fas fa-envelope"></i> contato@loja99acessorios.com.br</p>
-                <p><i class="fas fa-map-marker-alt"></i> Avenida Paulista, 1471 - Bela Vista - SP </p>
+                <p><i class="fas fa-map-marker-alt"></i> Rua Fictícia, 123 - Centro</p>
             </div>
             <div class="footer-col">
                 <h4>Informações</h4>
@@ -670,8 +672,8 @@
                 </p>
             </div>
 
-            <div class="success-message">
-                ✅ **Pagamento Aprovado!** Assim que o banco confirmar, seu pedido entrará em produção.
+            <div class="pending-message">
+                ⚠️ **Pedido Registrado!** O pagamento está **PENDENTE**. Seu pedido entrará em produção **SOMENTE APÓS** a confirmação do PIX.
             </div>
 
             <button id="close-pix-btn" class="btn btn-secondary" style="background-color: var(--secondary-color);">
@@ -691,7 +693,7 @@
             const fileNameDisplay = document.getElementById('file-name-display');
             const closeModalBtns = document.querySelectorAll('.close-btn');
             const copyBtn = document.querySelector('.copy-btn');
-            const confirmationMessage = document.querySelector('.success-message');
+            const pendingMessage = document.querySelector('.pending-message'); // Corrigido para pending-message
             const closePixBtn = document.getElementById('close-pix-btn');
             const countdownDisplay = document.getElementById('countdown');
             const cepInput = document.getElementById('cep');
@@ -791,7 +793,7 @@
 
                 addressModal.style.display = 'none';
                 pixModal.style.display = 'block';
-                confirmationMessage.style.display = 'none'; 
+                pendingMessage.style.display = 'none'; // Esconde a mensagem pendente ao abrir
                 document.body.style.overflow = 'hidden';
                 
                 startCountdown(10 * 60); // 10 minutos
@@ -832,8 +834,8 @@
                     const originalText = copyBtn.innerHTML;
                     copyBtn.innerHTML = '<i class="fas fa-check"></i> Copiado!';
                     
-                    // Simulação da mensagem de sucesso
-                    confirmationMessage.style.display = 'block';
+                    // CORREÇÃO: Mostra a mensagem de pagamento PENDENTE após a cópia
+                    pendingMessage.style.display = 'block';
 
                     setTimeout(function() {
                         copyBtn.innerHTML = originalText;
