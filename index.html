@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Print Express | Sua Gráfica Online Premium</title>
     <link rel="icon" type="image/png" href="https://s3-eu-west-1.amazonaws.com/tpd/logos/5f69d574915e300001f7cd6e/0x0.png">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
@@ -45,29 +45,62 @@
             margin-bottom: 15px;
         }
 
+        /* Animação Pulse (Chamativo) */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 102, 0, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(255, 102, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 102, 0, 0); }
+        }
+
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(39, 174, 96, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(39, 174, 96, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(39, 174, 96, 0); }
+        }
+
+
         /* Botões */
         .btn {
             display: inline-block;
-            padding: 14px 30px;
+            padding: 18px 35px; /* Botão maior */
             border: none;
-            border-radius: 50px; /* Borda mais arredondada */
-            font-weight: 700;
+            border-radius: 50px; 
+            font-weight: 900; /* Mais bold */
             cursor: pointer;
             transition: all 0.3s ease;
             text-transform: uppercase;
-            letter-spacing: 0.8px;
+            letter-spacing: 1px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-size: 1.1em;
         }
 
-        .btn-primary {
+        /* Botão de Upload no Hero */
+        #upload-btn-main {
             background-color: var(--primary-color);
             color: var(--light-text);
+            animation: pulse 2s infinite; 
         }
 
-        .btn-primary:hover {
+        #upload-btn-main:hover {
             background-color: #E65C00; 
             transform: translateY(-2px);
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            animation: none;
+        }
+        
+        /* Botão PAGAR AGORA (Verde Pulsante) */
+        .btn-pay-now {
+            background-color: var(--accent-color);
+            color: var(--light-text);
+            animation: pulse-green 2s infinite; 
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        .btn-pay-now:hover {
+            background-color: #219d54; 
+            transform: translateY(-2px);
+            animation: none;
         }
 
         /* Header */
@@ -75,6 +108,9 @@
             background-color: var(--light-text);
             box-shadow: var(--shadow);
             padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 50;
         }
 
         .header .container {
@@ -106,7 +142,7 @@
             background-position: center;
             color: var(--light-text);
             text-align: center;
-            padding: 120px 20px;
+            padding: 150px 20px;
             position: relative;
             z-index: 1; 
         }
@@ -118,19 +154,20 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.65); /* Overlay mais escuro */
+            background-color: rgba(0, 0, 0, 0.7); /* Overlay escuro para leitura */
             z-index: -1;
         }
 
         .hero-banner h1 {
-            font-size: 3.5em;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-size: 3.8em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+            line-height: 1.1;
         }
 
         .hero-banner p {
-            font-size: 1.4em;
-            margin-bottom: 40px;
+            font-size: 1.5em;
+            margin-bottom: 50px;
             font-weight: 600;
         }
 
@@ -223,7 +260,7 @@
         }
 
         /* ======================================
-        MODAIS (POP-UPS) - DESIGN PROFISSIONAL
+        MODAIS (POP-UPS) 
         ======================================
         */
         .modal {
@@ -266,43 +303,46 @@
 
         /* Checkout (Endereço) */
         .checkout-header {
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 15px;
             margin-bottom: 20px;
         }
 
         .checkout-header h3 {
             color: var(--secondary-color);
+            font-weight: 900;
         }
 
         .checkout-summary {
-            background-color: #ffe8d6; /* Fundo Suave */
+            background-color: #ffe8d6; 
             border-radius: 8px;
             padding: 15px;
             margin-bottom: 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-left: 5px solid var(--primary-color);
         }
 
         .checkout-summary strong {
             font-size: 1.1em;
             color: var(--primary-color);
+            font-weight: 700;
         }
         .checkout-summary .price {
-            font-size: 1.8em;
-            font-weight: 800;
+            font-size: 2.2em; /* Maior e mais destacado */
+            font-weight: 900;
             color: var(--secondary-color);
         }
         
         #address-form label {
             display: block;
             margin-top: 10px;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 0.9em;
         }
 
-        #address-form input {
+        #address-form input, #address-form select {
             width: 100%;
             padding: 12px;
             margin-top: 5px;
@@ -311,25 +351,31 @@
             border-radius: 8px;
             transition: border-color 0.3s;
         }
-        #address-form input:focus {
+        #address-form input:focus, #address-form select:focus {
             border-color: var(--primary-color);
             outline: none;
         }
 
-        .payment-option {
-            background-color: var(--accent-color);
-            color: var(--light-text);
+        /* Estilo elegante para a opção de pagamento PIX */
+        .payment-option-pix {
+            background-color: #ecf0f1; 
+            border: 1px solid #bdc3c7;
             padding: 10px;
-            border-radius: 5px;
-            margin-top: -5px;
-            margin-bottom: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
             text-align: center;
             font-weight: 700;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
+            color: var(--secondary-color);
         }
+        .payment-option-pix img {
+            height: 25px;
+            width: auto;
+        }
+
 
         /* Info PIX Modal (Pagamento) */
         .pix-modal-content {
@@ -347,7 +393,7 @@
             padding: 10px;
             border-radius: 8px;
             margin: 20px 0;
-            font-size: 1.5em;
+            font-size: 1.6em;
             font-weight: 700;
         }
         .countdown-timer i {
@@ -483,7 +529,7 @@
         <div class="container">
             <h1>Sua Impressão de Qualidade em Boa Vista</h1>
             <p>Rápido, Fácil e com Entrega Garantida. Envie sua arte e finalize o pedido agora mesmo!</p>
-            <button id="upload-btn-main" class="btn btn-primary">
+            <button id="upload-btn-main" class="btn">
                 <i class="fas fa-cloud-upload-alt"></i> FAZER UPLOAD E COMEÇAR
             </button>
             <input type="file" id="file-upload" accept="image/*, .pdf, .cdr, .ai" style="display: none;">
@@ -518,17 +564,17 @@
             <div class="footer-col">
                 <h4>Fale Conosco</h4>
                 <p><i class="fas fa-phone-alt"></i> (95) 99999-9999</p>
-                <p><i class="fas fa-envelope"></i> contato@printexpress.com.br</p>
+                <p><i class="fas fa-envelope"></i> contato@loja99acessorios.com.br</p>
                 <p><i class="fas fa-map-marker-alt"></i> Rua Fictícia, 123 - Centro</p>
             </div>
             <div class="footer-col">
                 <h4>Informações</h4>
+                <p>CNPJ: 21.902.826/0001-16</p>
                 <a href="#">Política de Troca</a>
                 <a href="#">Termos de Uso</a>
-                <a href="#">Trabalhe Conosco</a>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Print Express. Todos os direitos reservados. CNPJ: 00.000.000/0001-00.</p>
+                <p>&copy; 2025 Print Express. Todos os direitos reservados. Design e Qualidade Premium.</p>
             </div>
         </div>
     </footer>
@@ -538,19 +584,27 @@
         <div class="modal-content">
             <span class="close-btn">&times;</span>
             <div class="checkout-header">
-                <h3><i class="fas fa-map-marked-alt"></i> Finalize Seu Pedido e Entrega</h3>
+                <h3><i class="fas fa-shipping-fast"></i> Finalize Seu Pedido e Entrega</h3>
             </div>
             
             <div class="checkout-summary">
                 <div>
-                    <strong>Arquivo Enviado:</strong> <span id="file-name-display">Nenhum.</span><br>
-                    <span>Produto: Impressão Personalizada</span>
+                    <strong>Arquivo:</strong> <span id="file-name-display">Nenhum.</span><br>
+                    <span>Total Estimado</span>
                 </div>
-                <div class="price">R$ 49,00</div>
+                <div class="price" id="display-price">R$ 49,00</div>
             </div>
 
             <form id="address-form">
-                <label for="cep">CEP <span style="font-size: 0.8em; color: var(--primary-color);">(Digite e aguarde)</span></label>
+                
+                <label for="product-select">Quantidade / Tipo de Produto</label>
+                <select id="product-select" required>
+                    <option value="49.00">5.000 PANFLETOS (R$ 49,00)</option>
+                    <option value="69.00">1.000 CARTÕES DE VISITA (R$ 69,00)</option>
+                    <option value="89.00">100 ADESIVOS (R$ 89,00)</option>
+                </select>
+
+                <label for="cep">CEP <span style="font-size: 0.8em; color: var(--primary-color);">(Digite e aguarde o preenchimento)</span></label>
                 <input type="text" id="cep" pattern="\d{8}" placeholder="Ex: 69301000 (apenas números)" required maxlength="8">
 
                 <label for="endereco">Rua/Avenida</label>
@@ -579,12 +633,12 @@
                 <label for="telefone">Telefone (Para Contato)</label>
                 <input type="tel" id="telefone" placeholder="(95) 99999-9999" required>
 
-                <div class="payment-option">
-                    <i class="fas fa-hand-holding-usd"></i> OPÇÃO DE PAGAMENTO: PIX ÚNICO
+                <div class="payment-option-pix">
+                    <img src="https://www.advocacianunes.com.br/wp-content/uploads/2022/04/logo-pix-icone-1024.png" alt="Ícone PIX"> PIX
                 </div>
 
-                <button type="submit" class="btn btn-primary">
-                    <i class="fas fa-qrcode"></i> GERAR PIX PARA PAGAMENTO
+                <button type="submit" class="btn btn-pay-now">
+                    PAGAR AGORA <i class="fas fa-arrow-right"></i>
                 </button>
             </form>
         </div>
@@ -603,7 +657,7 @@
             <div class="pix-details">
                 <img src="https://www.advocacianunes.com.br/wp-content/uploads/2022/04/logo-pix-icone-1024.png" alt="Ícone PIX" class="pix-icon">
                 
-                <p><strong>VALOR A PAGAR:</strong> <span style="font-size: 1.5em; color: var(--secondary-color);">R$ 49,00</span></p>
+                <p><strong>VALOR A PAGAR:</strong> <span style="font-size: 1.8em; color: var(--secondary-color);" id="pix-value-display">R$ 49,00</span></p>
                 <p><strong>Tipo de Chave:</strong> CPF</p>
                 
                 <div class="pix-key-group">
@@ -620,7 +674,7 @@
                 ✅ **Pagamento Aprovado!** Assim que o banco confirmar, seu pedido entrará em produção.
             </div>
 
-            <button id="close-pix-btn" class="btn btn-secondary">
+            <button id="close-pix-btn" class="btn btn-secondary" style="background-color: var(--secondary-color);">
                 <i class="fas fa-times"></i> Fechar
             </button>
         </div>
@@ -643,23 +697,43 @@
             const cepInput = document.getElementById('cep');
             const enderecoInput = document.getElementById('endereco');
             const bairroInput = document.getElementById('bairro');
+            const productSelect = document.getElementById('product-select');
+            const displayPrice = document.getElementById('display-price');
+            const pixValueDisplay = document.getElementById('pix-value-display');
             
             let uploadedFileName = '';
             let countdownInterval;
 
-            // Função para abrir o seletor de arquivo
-            uploadBtnMain.addEventListener('click', () => fileUpload.click());
+            // Função para formatar o preço
+            const formatPrice = (price) => {
+                return `R$ ${parseFloat(price).toFixed(2).replace('.', ',')}`;
+            };
+
+            // 0. Atualizar preço ao selecionar produto
+            productSelect.addEventListener('change', function() {
+                const newPrice = this.value;
+                displayPrice.textContent = formatPrice(newPrice);
+                pixValueDisplay.textContent = formatPrice(newPrice);
+            });
 
             // 1. Processo de Upload e Abertura do Checkout
+            uploadBtnMain.addEventListener('click', () => fileUpload.click());
+
             fileUpload.addEventListener('change', function(event) {
                 if (event.target.files.length > 0) {
                     const file = event.target.files[0];
                     uploadedFileName = file.name;
                     
+                    // Exibe o nome do arquivo, truncando se for muito longo
                     fileNameDisplay.textContent = uploadedFileName.length > 25 
                         ? uploadedFileName.substring(0, 22) + '...' 
                         : uploadedFileName;
                     
+                    // Garante que o preço inicial esteja correto
+                    const initialPrice = productSelect.value;
+                    displayPrice.textContent = formatPrice(initialPrice);
+                    pixValueDisplay.textContent = formatPrice(initialPrice);
+
                     addressModal.style.display = 'block';
                     document.body.style.overflow = 'hidden'; 
                 }
@@ -670,7 +744,6 @@
                 addressModal.style.display = 'none';
                 pixModal.style.display = 'none';
                 document.body.style.overflow = 'auto'; 
-                // Para o contador ao fechar o PIX
                 if (countdownInterval) {
                     clearInterval(countdownInterval);
                 }
@@ -688,22 +761,18 @@
 
             // 3. Simulação de Preenchimento por CEP
             cepInput.addEventListener('input', function() {
-                // Remove caracteres não numéricos
                 let cep = this.value.replace(/\D/g, ''); 
                 this.value = cep;
 
                 if (cep.length === 8) {
-                    // Simulação: Em produção, você faria uma requisição AJAX para ViaCEP
-                    console.log(`Buscando endereço para CEP: ${cep}`);
+                    // Simulação: Em produção, você usaria uma API como ViaCEP
                     
-                    // Simulação de delay para API
+                    // Simulação de delay
                     setTimeout(() => {
-                        // Preenche os campos simulados (ajuste para Boa Vista)
-                        enderecoInput.value = 'Rua Fictícia de Boa Vista';
+                        // Preenche os campos simulados
+                        enderecoInput.value = 'Rua Fictícia dos Empreendedores';
                         bairroInput.value = 'Centro Cívico';
-                        // A cidade já está como Boa Vista (readonly)
-
-                        document.getElementById('numero').focus(); // Foca no número
+                        document.getElementById('numero').focus(); 
                     }, 500);
                 } else if (cep.length < 8) {
                     enderecoInput.value = '';
@@ -763,7 +832,7 @@
                     const originalText = copyBtn.innerHTML;
                     copyBtn.innerHTML = '<i class="fas fa-check"></i> Copiado!';
                     
-                    // Simulação: A confirmação de pagamento seria feita pelo backend
+                    // Simulação da mensagem de sucesso
                     confirmationMessage.style.display = 'block';
 
                     setTimeout(function() {
