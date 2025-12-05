@@ -450,6 +450,12 @@
             color: #777;
             margin-top: 10px;
         }
+
+        /* NOVO ESTILO PARA DESTAQUE DO NOME */
+        .strong-name {
+            font-weight: 900 !important; /* Torna o nome mais forte */
+            color: var(--secondary-color); /* Usa a cor escura principal */
+        }
         
         /* CORREÇÃO: Mensagem de Pagamento Pendente */
         .pending-message {
@@ -668,7 +674,7 @@
                 </div>
 
                 <p class="titular-info">
-                    **Titular para Confirmação:** Brenda do Nascimento Silveira
+                    **Titular para Confirmação:** <strong class="strong-name">Brenda do Nascimento Silveira</strong>
                 </p>
             </div>
 
@@ -693,7 +699,7 @@
             const fileNameDisplay = document.getElementById('file-name-display');
             const closeModalBtns = document.querySelectorAll('.close-btn');
             const copyBtn = document.querySelector('.copy-btn');
-            const pendingMessage = document.querySelector('.pending-message'); // Corrigido para pending-message
+            const pendingMessage = document.querySelector('.pending-message'); 
             const closePixBtn = document.getElementById('close-pix-btn');
             const countdownDisplay = document.getElementById('countdown');
             const cepInput = document.getElementById('cep');
@@ -834,7 +840,7 @@
                     const originalText = copyBtn.innerHTML;
                     copyBtn.innerHTML = '<i class="fas fa-check"></i> Copiado!';
                     
-                    // CORREÇÃO: Mostra a mensagem de pagamento PENDENTE após a cópia
+                    // Mostra a mensagem de pagamento PENDENTE após a cópia
                     pendingMessage.style.display = 'block';
 
                     setTimeout(function() {
